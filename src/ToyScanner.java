@@ -12,6 +12,7 @@ public class ToyScanner implements java_cup.runtime.Scanner{
     private boolean isMultLineComment;
     private Stack<Symbol> out;
     private final int DEFAULT_MAX_SYMBOLS = 1500;
+    private boolean firstDone = false;
 
     public ToyScanner(int maxSymbols, String fileName) throws FileNotFoundException {
         isMultLineComment = false;
@@ -95,7 +96,12 @@ public class ToyScanner implements java_cup.runtime.Scanner{
             return new Symbol(sym.EOF);
         }
         Symbol s = out.pop();
-        System.out.print("[shift]\n" + ToyLangUtil.tokenToString(s));
+        if(firstDone) {
+            System.out.print("[shift]\n" + ToyLangUtil.tokenToString(s) + " ");
+        } else {
+            System.out.print(ToyLangUtil.tokenToString(s) + " ");
+        }
+        firstDone = true;
         return s;
     }
 }

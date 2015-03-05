@@ -7,8 +7,9 @@ public class Project2 {
         parser p = new parser();
         try {
             p.parse();
+            System.out.println("\n[accept]");
         } catch (Exception e) {
-            e.printStackTrace();
+            System.out.println("\n[reject]");
         }
     }
 }

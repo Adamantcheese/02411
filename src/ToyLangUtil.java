@@ -167,15 +167,12 @@ public class ToyLangUtil {
     }
 
     public static String tokenToString (Symbol s) {
-        for(int i = 0; i < sym.terminalNames.length; i++) {
-            if(s.sym == i) {
-                if(i == 0 || i == 1) {
-                    return sym.terminalNames[i];
-                } else {
-                    return sym.terminalNames[i].substring(2, sym.terminalNames[i].length() - 2);
-                }
-            }
+        if(s.sym == 0 || s.sym == 1) {
+            return sym.terminalNames[s.sym];
+        } else if (s.sym > 1 && s.sym < sym.terminalNames.length) {
+            return sym.terminalNames[s.sym].substring(2, sym.terminalNames[s.sym].length() - 2);
+        } else {
+            return "NOT_A_TOKEN";
         }
-        return "NOT_A_TOKEN";
     }
 }
