@@ -93,7 +93,7 @@ public class ToyScanner implements java_cup.runtime.Scanner{
     @Override
     public Symbol next_token () throws Exception {
         if(out.empty()) {
-            return new Symbol(sym.EOF);
+            return null;
         }
         Symbol s = out.pop();
         if(firstDone) {

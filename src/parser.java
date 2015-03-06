@@ -598,27 +598,6 @@ public class parser extends java_cup.runtime.lr_parser {
   public int error_sym() {return 1;}
 
 
-  /** User initialization code. */
-  public void user_init() throws java.lang.Exception
-    {
-
-    scanner = new ToyScanner("ToyTestFile.toy");
-
-    }
-
-  /** Scan to get the next Symbol. */
-  public java_cup.runtime.Symbol scan()
-    throws java.lang.Exception
-    {
-
-    return scanner.next_token();
-
-    }
-
-
-    public ToyScanner scanner;
-
-
 /** Cup generated class to encapsulate user supplied action code.*/
 @SuppressWarnings({"rawtypes", "unchecked", "unused"})
 class CUP$parser$actions {
