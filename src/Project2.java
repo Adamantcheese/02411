@@ -8,7 +8,7 @@ public class Project2 {
         System.err.close();
         parser p;
         //Parse the first file
-        /*System.out.println("FIRST FILE PARSING OUTPUT");
+        System.out.println("FIRST FILE PARSING OUTPUT");
         try {
             p = new parser(new ToyScanner("ToyTestFile.toy"));
             p.parse();
@@ -19,7 +19,7 @@ public class Project2 {
             System.out.println("\n[reject]");
         }
 
-        //Parse the second file
+        /*//Parse the second file
         System.out.println("\nSECOND FILE PARSING OUTPUT");
         try {
             p = new parser(new ToyScanner("ToyTestFile2.toy"));
@@ -31,6 +31,7 @@ public class Project2 {
             System.out.println("\n[reject]");
         }*/
 
+        System.out.println("\nTHIRD FILE PARSING OUTPUT");
         try {
             p = new parser(new ToyScanner("Test.toy"));
             p.parse();

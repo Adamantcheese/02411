@@ -11,7 +11,6 @@ public class ToyScanner implements java_cup.runtime.Scanner{
     private Trie trie;
     private boolean isMultLineComment;
     private Stack<Symbol> out;
-    private final int DEFAULT_MAX_SYMBOLS = 1500;
     private boolean firstDone = false;
 
     public ToyScanner(int maxSymbols, String fileName) throws FileNotFoundException {
@@ -24,7 +23,7 @@ public class ToyScanner implements java_cup.runtime.Scanner{
     public ToyScanner(String fileName) throws FileNotFoundException {
         isMultLineComment = false;
         out = new Stack<Symbol>();
-        trie = new Trie(ToyLangUtil.reserved, DEFAULT_MAX_SYMBOLS);
+        trie = new Trie(ToyLangUtil.reserved, 1500);
         scanFile(fileName);
     }
 

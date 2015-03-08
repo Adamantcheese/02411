@@ -120,7 +120,7 @@ IdList			::= __id__
 					__id__ __comma__ IdList
 					    {: System.out.print("[reduce 27]"); :}
 					;
-FieldSet			::= Field FieldSet
+FieldSet		::= Field FieldSet
                         {: System.out.print("[reduce 28]"); :}
 					|
 					    {: System.out.print("[reduce 29]"); :}
@@ -142,12 +142,13 @@ Prototype		::= Type __id__ __leftparen__ Formals __rightparen__ __semicolon__
 					__void__ __id__ __leftparen__ Formals __rightparen__ __semicolon__
 					    {: System.out.print("[reduce 35]"); :}
 					;
-StmtBlock		::= __leftbrace__ VariableDeclSet StmtSet __rightbrace__
+StmtBlock		::= __leftbrace__ VariableDeclSet __rightbrace__
                         {: System.out.print("[reduce 36]"); :}
                     ;
 VariableDeclSet	::= VariableDecl VariableDeclSet
                         {: System.out.print("[reduce 37]"); :}
 					|
+					StmtSet
 					    {: System.out.print("[reduce 38]"); :}
 					;
 StmtSet			::= Stmt StmtSet
