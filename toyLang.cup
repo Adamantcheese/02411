@@ -1,4 +1,4 @@
-/* TERMINALS */
+/* RESERVED WORD TERMINALS */
 terminal __boolean__, __break__;
 terminal __class__;
 terminal __double__;
@@ -12,6 +12,7 @@ terminal __string__;
 terminal __void__;
 terminal __while__;
 
+/* OPERATOR AND CONSTANT TERMINALS */
 terminal __plus__, __minus__, __multiplication__, __division__, __mod__;
 terminal __less__, __lessequal__, __greater__, __greaterequal__, __equal__, __notequal__;
 terminal __and__, __or__, __not__;
@@ -21,12 +22,12 @@ terminal __intconstant__, __doubleconstant__, __stringconstant__, __booleanconst
 
 /* NONTERMINALS */
 non terminal S, Program;
-non terminal Decl, VariableDecl, FunctionDecl, ClassDecl, InterfaceDecl;
-non terminal Variable, Type, _Type;
-non terminal Formals, _Formals, _Extends, _Implements, _Id, _Field, Field, _Prototype, Prototype;
-non terminal StmtBlock, _VariableDecl, _Stmt;
-non terminal Stmt, IfStmt, WhileStmt, ForStmt, BreakStmt, ReturnStmt, PrintStmt;
-non terminal _Expr, Expr, Lvalue, Call, _Actuals, Actuals, Constant;
+non terminal Decl, VariableDecl, FunctionDecl;
+non terminal Variable, Type, ArrType;
+non terminal Formals, FormalsList, OptExtends, OptImplements, IdList, FieldSet, Field, PrototypeSet, Prototype;
+non terminal StmtBlock, VariableDeclSet, StmtSet;
+non terminal Stmt, OptExpr, OptElse;
+non terminal ExprList, Expr, Lvalue, LvalueQualifers, Call, Actuals, Constant;
 
 /* PRECEDENCE RULES */
 precedence right __assignop__;
@@ -55,10 +56,10 @@ Decl 			::= VariableDecl
 					FunctionDecl
 					    {: System.out.print("[reduce 4]"); :}
 					|
-					ClassDecl
+					__class__ __id__ OptExtends OptImplements __leftbrace__ FieldSet __rightbrace__
 					    {: System.out.print("[reduce 5]"); :}
 					|
-					InterfaceDecl
+					__interface__ __id__ __leftbrace__ PrototypeSet __rightbrace__
 					    {: System.out.print("[reduce 6]"); :}
 					;
 VariableDecl	::= Variable __semicolon__
@@ -67,22 +68,22 @@ VariableDecl	::= Variable __semicolon__
 Variable		::= Type __id__
                         {: System.out.print("[reduce 8]"); :}
                     ;
-Type			::= __int__ _Type
+Type			::= __int__ ArrType
                         {: System.out.print("[reduce 9]"); :}
 					|
-					__double__ _Type
+					__double__ ArrType
 					    {: System.out.print("[reduce 10]"); :}
 					|
-					__boolean__ _Type
+					__boolean__ ArrType
 					    {: System.out.print("[reduce 11]"); :}
 					|
-					__string__ _Type
+					__string__ ArrType
 					    {: System.out.print("[reduce 12]"); :}
 					|
-					__id__ _Type
+					__id__ ArrType
 					    {: System.out.print("[reduce 13]"); :}
 					;
-_Type			::= __leftbracket__ __rightbracket__ _Type
+ArrType			::= __leftbracket__ __rightbracket__ ArrType
                         {: System.out.print("[reduce 14]"); :}
 					|
 					    {: System.out.print("[reduce 15]"); :}
@@ -93,242 +94,206 @@ FunctionDecl	::= Type __id__ __leftparen__ Formals __rightparen__ StmtBlock
 					__void__ __id__ __leftparen__ Formals __rightparen__ StmtBlock
 					    {: System.out.print("[reduce 17]"); :}
 					;
-Formals			::= _Formals
+Formals			::= FormalsList
                         {: System.out.print("[reduce 18]"); :}
 					|
 					    {: System.out.print("[reduce 19]"); :}
 					;
-_Formals		::= Variable
+FormalsList		::= Variable
                         {: System.out.print("[reduce 20]"); :}
 					|
-					Variable __comma__ _Formals
+					Variable __comma__ FormalsList
 					    {: System.out.print("[reduce 21]"); :}
 					;
-ClassDecl		::= __class__ __id__ _Extends _Implements __leftbrace__ _Field __rightbrace__
+OptExtends		::= __extends__ __id__
                         {: System.out.print("[reduce 22]"); :}
-                    ;
-_Extends		::= __extends__ __id__
-                        {: System.out.print("[reduce 23]"); :}
 					|
-					    {: System.out.print("[reduce 24]"); :}
+					    {: System.out.print("[reduce 23]"); :}
 					;
-_Implements 	::= __implements__ _Id
-                        {: System.out.print("[reduce 25]"); :}
+OptImplements 	::= __implements__ IdList
+                        {: System.out.print("[reduce 24]"); :}
 					|
-					    {: System.out.print("[reduce 26]"); :}
+					    {: System.out.print("[reduce 25]"); :}
 					;
-_Id			    ::= __id__
-                        {: System.out.print("[reduce 27]"); :}
+IdList			::= __id__
+                        {: System.out.print("[reduce 26]"); :}
 					|
-					__id__ __comma__ _Id
-					    {: System.out.print("[reduce 28]"); :}
+					__id__ __comma__ IdList
+					    {: System.out.print("[reduce 27]"); :}
 					;
-_Field			::= Field _Field
-                        {: System.out.print("[reduce 29]"); :}
+FieldSet			::= Field FieldSet
+                        {: System.out.print("[reduce 28]"); :}
 					|
-					    {: System.out.print("[reduce 30]"); :}
+					    {: System.out.print("[reduce 29]"); :}
 					;
 Field			::= FunctionDecl
-                        {: System.out.print("[reduce 31]"); :}
+                        {: System.out.print("[reduce 30]"); :}
 					|
 					VariableDecl
-					    {: System.out.print("[reduce 32]"); :}
+					    {: System.out.print("[reduce 31]"); :}
 					;
-InterfaceDecl	::= __interface__ __id__ __leftbrace__ _Prototype __rightbrace__
-                        {: System.out.print("[reduce 33]"); :}
-                    ;
-_Prototype		::= Prototype _Prototype
-                        {: System.out.print("[reduce 34]"); :}
+PrototypeSet		::= Prototype PrototypeSet
+                        {: System.out.print("[reduce 32]"); :}
 					|
-					    {: System.out.print("[reduce 35]"); :}
+					    {: System.out.print("[reduce 33]"); :}
 					;
 Prototype		::= Type __id__ __leftparen__ Formals __rightparen__ __semicolon__
-                        {: System.out.print("[reduce 36]"); :}
+                        {: System.out.print("[reduce 34]"); :}
 					|
 					__void__ __id__ __leftparen__ Formals __rightparen__ __semicolon__
-					    {: System.out.print("[reduce 37]"); :}
+					    {: System.out.print("[reduce 35]"); :}
 					;
-StmtBlock		::= __leftbrace__ _VariableDecl _Stmt __rightbrace__
-                        {: System.out.print("[reduce 38]"); :}
+StmtBlock		::= __leftbrace__ VariableDeclSet StmtSet __rightbrace__
+                        {: System.out.print("[reduce 36]"); :}
                     ;
-_VariableDecl	::= VariableDecl _VariableDecl
+VariableDeclSet	::= VariableDecl VariableDeclSet
+                        {: System.out.print("[reduce 37]"); :}
+					|
+					    {: System.out.print("[reduce 38]"); :}
+					;
+StmtSet			::= Stmt StmtSet
                         {: System.out.print("[reduce 39]"); :}
 					|
 					    {: System.out.print("[reduce 40]"); :}
 					;
-_Stmt			::= Stmt _Stmt
+Stmt			::= OptExpr __semicolon__
                         {: System.out.print("[reduce 41]"); :}
 					|
+					__if__ __leftparen__ Expr __rightparen__ Stmt OptElse
 					    {: System.out.print("[reduce 42]"); :}
-					;
-Stmt			::= Expr __semicolon__
-                        {: System.out.print("[reduce 43]"); :}
 					|
-					__semicolon__
+					__while__ __leftparen__ Expr __rightparen__ Stmt
+					    {: System.out.print("[reduce 43]"); :}
+					|
+					__for__ __leftparen__ OptExpr __semicolon__ Expr __semicolon__ OptExpr __rightparen__ Stmt
 					    {: System.out.print("[reduce 44]"); :}
 					|
-					IfStmt
+					__break__ __semicolon__
 					    {: System.out.print("[reduce 45]"); :}
 					|
-					WhileStmt
+					__return__ OptExpr __semicolon__
 					    {: System.out.print("[reduce 46]"); :}
 					|
-					ForStmt
+					__println__ __leftparen__ ExprList __rightparen__ __semicolon__
 					    {: System.out.print("[reduce 47]"); :}
 					|
-					BreakStmt
-					    {: System.out.print("[reduce 48]"); :}
-					|
-					ReturnStmt
-					    {: System.out.print("[reduce 49]"); :}
-					|
-					PrintStmt
-					    {: System.out.print("[reduce 50]"); :}
-					|
 					StmtBlock
-					    {: System.out.print("[reduce 51]"); :}
+					    {: System.out.print("[reduce 48]"); :}
 					;
-IfStmt			::= __if__ __leftparen__ Expr __rightparen__ Stmt
+OptExpr         ::= Expr
+                        {: System.out.print("[reduce 49]"); :}
+                    |
+                        {: System.out.print("[reduce 50]"); :}
+                    ;
+OptElse         ::= __else__ Stmt
+                        {: System.out.print("[reduce 51]"); :}
+                    |
                         {: System.out.print("[reduce 52]"); :}
-					|
-					__if__ __leftparen__ Expr __rightparen__ Stmt __else__ Stmt
-					    {: System.out.print("[reduce 53]"); :}
-					;
-WhileStmt		::= __while__ __leftparen__ Expr __rightparen__ Stmt
-                        {: System.out.print("[reduce 54]"); :}
                     ;
-ForStmt			::= __for__ __leftparen__ __semicolon__ Expr __semicolon__ __rightparen__ Stmt
-                        {: System.out.print("[reduce 55]"); :}
+ExprList			::= Expr
+                        {: System.out.print("[reduce 53]"); :}
 					|
-					__for__ __leftparen__ Expr __semicolon__ Expr __semicolon__ __rightparen__ Stmt
-					    {: System.out.print("[reduce 56]"); :}
-					|
-					__for__ __leftparen__ __semicolon__ Expr __semicolon__ Expr __rightparen__ Stmt
-					    {: System.out.print("[reduce 57]"); :}
-					|
-					__for__ __leftparen__ Expr __semicolon__ Expr __semicolon__ Expr __rightparen__ Stmt
-					    {: System.out.print("[reduce 58]"); :}
-					;
-BreakStmt		::= __break__ __semicolon__
-                        {: System.out.print("[reduce 59]"); :}
-                    ;
-ReturnStmt		::= __return__ __semicolon__
-                        {: System.out.print("[reduce 60]"); :}
-					|
-					__return__ Expr __semicolon__
-					    {: System.out.print("[reduce 61]"); :}
-					;
-PrintStmt		::= __println__ __leftparen__ _Expr __rightparen__ __semicolon__
-                        {: System.out.print("[reduce 62]"); :}
-                    ;
-_Expr			::= Expr
-                        {: System.out.print("[reduce 63]"); :}
-					|
-					Expr __comma__ _Expr
-					    {: System.out.print("[reduce 64]"); :}
+					Expr __comma__ ExprList
+					    {: System.out.print("[reduce 54]"); :}
 					;
 Expr			::= Lvalue __assignop__ Expr
-                        {: System.out.print("[reduce 65]"); :}
+                        {: System.out.print("[reduce 55]"); :}
 					|
 					Constant
-					    {: System.out.print("[reduce 66]"); :}
+					    {: System.out.print("[reduce 56]"); :}
 					|
 					Lvalue
-					    {: System.out.print("[reduce 67]"); :}
+					    {: System.out.print("[reduce 57]"); :}
 					|
 					Call
-					    {: System.out.print("[reduce 68]"); :}
+					    {: System.out.print("[reduce 58]"); :}
 					|
 					__leftparen__ Expr __rightparen__
-					    {: System.out.print("[reduce 69]"); :}
+					    {: System.out.print("[reduce 59]"); :}
 					|
 					Expr __plus__ Expr
-					    {: System.out.print("[reduce 70]"); :}
+					    {: System.out.print("[reduce 60]"); :}
 					|
 					Expr __minus__ Expr
-					    {: System.out.print("[reduce 71]"); :}
+					    {: System.out.print("[reduce 61]"); :}
 					|
 					Expr __multiplication__ Expr
-					    {: System.out.print("[reduce 72]"); :}
+					    {: System.out.print("[reduce 62]"); :}
 					|
 					Expr __division__ Expr
-					    {: System.out.print("[reduce 73]"); :}
+					    {: System.out.print("[reduce 63]"); :}
 					|
 					Expr __mod__ Expr
-					    {: System.out.print("[reduce 74]"); :}
+					    {: System.out.print("[reduce 64]"); :}
 					|
 					__minus__ Expr
-					    {: System.out.print("[reduce 75]"); :}
+					    {: System.out.print("[reduce 65]"); :}
 					    %prec __uminus__
 					|
 					Expr __less__ Expr
-					    {: System.out.print("[reduce 76]"); :}
+					    {: System.out.print("[reduce 66]"); :}
 					|
 					Expr __lessequal__ Expr
-					    {: System.out.print("[reduce 77]"); :}
+					    {: System.out.print("[reduce 67]"); :}
 					|
 					Expr __greater__ Expr
-					    {: System.out.print("[reduce 78]"); :}
+					    {: System.out.print("[reduce 68]"); :}
 					|
 					Expr __greaterequal__ Expr
-					    {: System.out.print("[reduce 79]"); :}
+					    {: System.out.print("[reduce 69]"); :}
 					|
 					Expr __equal__ Expr
-					    {: System.out.print("[reduce 80]"); :}
+					    {: System.out.print("[reduce 70]"); :}
 					|
 					Expr __notequal__ Expr
-					    {: System.out.print("[reduce 81]"); :}
+					    {: System.out.print("[reduce 71]"); :}
 					|
 					Expr __and__ Expr
-					    {: System.out.print("[reduce 82]"); :}
+					    {: System.out.print("[reduce 72]"); :}
 					|
 					Expr __or__ Expr
-					    {: System.out.print("[reduce 83]"); :}
+					    {: System.out.print("[reduce 73]"); :}
 					|
 					__not__ Expr
-					    {: System.out.print("[reduce 84]"); :}
+					    {: System.out.print("[reduce 74]"); :}
 					|
 					__readln__ __leftparen__ __rightparen__
-					    {: System.out.print("[reduce 85]"); :}
+					    {: System.out.print("[reduce 75]"); :}
 					|
 					__newarray__ __leftparen__ __intconstant__ __comma__ Type __rightparen__
-					    {: System.out.print("[reduce 86]"); :}
+					    {: System.out.print("[reduce 76]"); :}
 					;
-Lvalue			::= __id__
-                        {: System.out.print("[reduce 87]"); :}
-					|
-					Lvalue __leftbracket__ Expr __rightbracket__
-					    {: System.out.print("[reduce 88]"); :}
-					|
-					Lvalue __period__ __id__
-					    {: System.out.print("[reduce 89]"); :}
+Lvalue			::= __id__ LvalueQualifers
+                        {: System.out.print("[reduce 77]"); :}
 					;
-Call			::= __id__ __leftparen__ _Actuals __rightparen__
-                        {: System.out.print("[reduce 90]"); :}
+LvalueQualifers ::= __leftbracket__ Expr __rightbracket__ LvalueQualifers
+					    {: System.out.print("[reduce 78]"); :}
+					|
+					__period__ __id__ LvalueQualifers
+					    {: System.out.print("[reduce 79]"); :}
+					|
+					    {: System.out.print("[reduce 80]"); :}
+					;
+Call			::= __id__ __leftparen__ Actuals __rightparen__
+                        {: System.out.print("[reduce 81]"); :}
 					|
 					__id__ __period__ __id__ __leftparen__ Actuals __rightparen__
-					    {: System.out.print("[reduce 91]"); :}
+					    {: System.out.print("[reduce 82]"); :}
 					;
-_Actuals		::= Actuals
-                        {: System.out.print("[reduce 92]"); :}
+Actuals			::= ExprList
+                        {: System.out.print("[reduce 83]"); :}
 					|
-					    {: System.out.print("[reduce 93]"); :}
-					;
-Actuals			::= Expr
-                        {: System.out.print("[reduce 94]"); :}
-					|
-					Expr __comma__ Actuals
-					    {: System.out.print("[reduce 95]"); :}
+					    {: System.out.print("[reduce 84]"); :}
 					;
 Constant		::= __intconstant__
-                        {: System.out.print("[reduce 96]"); :}
+                        {: System.out.print("[reduce 85]"); :}
 					|
 					__doubleconstant__
-					    {: System.out.print("[reduce 97]"); :}
+					    {: System.out.print("[reduce 86]"); :}
 					|
 					__stringconstant__
-					    {: System.out.print("[reduce 98]"); :}
+					    {: System.out.print("[reduce 87]"); :}
 					|
 					__booleanconstant__
-					    {: System.out.print("[reduce 99]"); :}
+					    {: System.out.print("[reduce 88]"); :}
 					;

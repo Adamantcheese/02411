@@ -18,18 +18,18 @@ public class ToyScanner implements java_cup.runtime.Scanner{
         isMultLineComment = false;
         out = new Stack<Symbol>();
         trie = new Trie(ToyLangUtil.reserved, maxSymbols);
-        scanFile(fileName, false);
+        scanFile(fileName);
     }
 
     public ToyScanner(String fileName) throws FileNotFoundException {
         isMultLineComment = false;
         out = new Stack<Symbol>();
         trie = new Trie(ToyLangUtil.reserved, DEFAULT_MAX_SYMBOLS);
-        scanFile(fileName, false);
+        scanFile(fileName);
     }
 
     //Scan any given file to the lexical analyzer
-    public void scanFile (String fileName, boolean verbose) throws FileNotFoundException {
+    public void scanFile (String fileName) throws FileNotFoundException {
         Scanner scFile = new Scanner(new File(fileName));
         while (scFile.hasNext()) {
             String tempLine = scFile.nextLine().trim();
@@ -93,13 +93,13 @@ public class ToyScanner implements java_cup.runtime.Scanner{
     @Override
     public Symbol next_token () throws Exception {
         if(out.empty()) {
-            return null;
+            return new Symbol(sym.EOF);
         }
         Symbol s = out.pop();
         if(firstDone) {
-            System.out.print("[shift]\n" + ToyLangUtil.tokenToString(s) + " ");
+            System.out.printf("[shift]\n%-15s ", ToyLangUtil.tokenToString(s));
         } else {
-            System.out.print(ToyLangUtil.tokenToString(s) + " ");
+            System.out.printf("%-15s ", ToyLangUtil.tokenToString(s));
         }
         firstDone = true;
         return s;
