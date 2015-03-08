@@ -215,9 +215,11 @@ MathExpr		::= Constant
 					|
 					Lvalue
 					    {: System.out.print("[reduce 58]"); :}
+					    %prec __leftbracket__
 					|
 					Call
 					    {: System.out.print("[reduce 59]"); :}
+					    %prec __period__
 					|
 					Expr __plus__ Expr
 					    {: System.out.print("[reduce 61]"); :}

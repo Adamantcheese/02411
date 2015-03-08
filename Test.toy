@@ -1,10 +1,12 @@
+int x;
+
 int test (int x, string y) {
     int total;
     total = total * x;
     return total;
 }
 
-class cs411 {
+class cs411 extends test implements a, b, c {
     int Funny;
     double funny;
     boolean flag;
@@ -13,4 +15,12 @@ class cs411 {
     int test () {
         while (x = (Funny/10) <0) println (s, “ have fun !”);
     }
+
+    boolean testing() {
+        return funny < cs411.Funny;
+    }
+}
+
+interface cs4112 {
+    void test();
 }
