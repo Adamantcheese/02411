@@ -614,7 +614,9 @@ class CUP$parser$actions {
           case 4: // Decl ::= VariableDecl 
             {
               Object RESULT =null;
-		 System.out.print("[reduce 3]"); 
+                ((ToyScanner) getScanner()).doLastLine();
+                System.out.print("[reduce 3]");
+                        
               CUP$parser$result = parser.getSymbolFactory().newSymbol("Decl",2, ((java_cup.runtime.Symbol)CUP$parser$stack.peek()), ((java_cup.runtime.Symbol)CUP$parser$stack.peek()), RESULT);
             }
           return CUP$parser$result;
@@ -623,8 +625,10 @@ class CUP$parser$actions {
           case 5: // Decl ::= FunctionDecl 
             {
               Object RESULT =null;
-		 System.out.print("[reduce 4]"); 
-              CUP$parser$result = parser.getSymbolFactory().newSymbol("Decl",2, ((java_cup.runtime.Symbol)CUP$parser$stack.peek()), ((java_cup.runtime.Symbol)CUP$parser$stack.peek()), RESULT);
+                ((ToyScanner) getScanner()).doLastLine();
+                System.out.print("[reduce 4]");
+
+                CUP$parser$result = parser.getSymbolFactory().newSymbol("Decl",2, ((java_cup.runtime.Symbol)CUP$parser$stack.peek()), ((java_cup.runtime.Symbol)CUP$parser$stack.peek()), RESULT);
             }
           return CUP$parser$result;
 
@@ -632,10 +636,10 @@ class CUP$parser$actions {
           case 6: // Decl ::= __class__ __id__ OptExtends OptImplements __leftbrace__ FieldSet __rightbrace__ 
             {
               Object RESULT =null;
-                System.out.print("[reduce 5]");
                 ((ToyScanner) getScanner()).doLastLine();
+                System.out.print("[reduce 5]");
 
-                CUP$parser$result = parser.getSymbolFactory().newSymbol("Decl",2, ((java_cup.runtime.Symbol)CUP$parser$stack.elementAt(CUP$parser$top-6)), ((java_cup.runtime.Symbol)CUP$parser$stack.peek()), RESULT);
+                CUP$parser$result = parser.getSymbolFactory().newSymbol("Decl", 2, ((java_cup.runtime.Symbol) CUP$parser$stack.elementAt(CUP$parser$top - 6)), ((java_cup.runtime.Symbol) CUP$parser$stack.peek()), RESULT);
             }
           return CUP$parser$result;
 
@@ -643,10 +647,10 @@ class CUP$parser$actions {
           case 7: // Decl ::= __interface__ __id__ __leftbrace__ PrototypeSet __rightbrace__ 
             {
               Object RESULT =null;
-                System.out.print("[reduce 6]");
                 ((ToyScanner) getScanner()).doLastLine();
+                System.out.print("[reduce 6]");
 
-                CUP$parser$result = parser.getSymbolFactory().newSymbol("Decl",2, ((java_cup.runtime.Symbol)CUP$parser$stack.elementAt(CUP$parser$top-4)), ((java_cup.runtime.Symbol)CUP$parser$stack.peek()), RESULT);
+                CUP$parser$result = parser.getSymbolFactory().newSymbol("Decl", 2, ((java_cup.runtime.Symbol) CUP$parser$stack.elementAt(CUP$parser$top - 4)), ((java_cup.runtime.Symbol) CUP$parser$stack.peek()), RESULT);
             }
           return CUP$parser$result;
 
@@ -654,9 +658,7 @@ class CUP$parser$actions {
           case 8: // VariableDecl ::= Variable __semicolon__ 
             {
               Object RESULT =null;
-                ((ToyScanner) getScanner()).doLastLine();
                 System.out.print("[reduce 7]");
-                        
               CUP$parser$result = parser.getSymbolFactory().newSymbol("VariableDecl",3, ((java_cup.runtime.Symbol)CUP$parser$stack.elementAt(CUP$parser$top-1)), ((java_cup.runtime.Symbol)CUP$parser$stack.peek()), RESULT);
             }
           return CUP$parser$result;
@@ -917,9 +919,7 @@ class CUP$parser$actions {
             case 37: // StmtBlock ::= __leftbrace__ VariableDeclSet __rightbrace__
             {
               Object RESULT =null;
-                ((ToyScanner) getScanner()).doLastLine();
                 System.out.print("[reduce 36]");
-
                 CUP$parser$result = parser.getSymbolFactory().newSymbol("StmtBlock", 17, ((java_cup.runtime.Symbol) CUP$parser$stack.elementAt(CUP$parser$top - 2)), ((java_cup.runtime.Symbol) CUP$parser$stack.peek()), RESULT);
             }
           return CUP$parser$result;

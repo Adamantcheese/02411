@@ -3,3 +3,14 @@ int test (int x, string y) {
     total = total * x;
     return total;
 }
+
+class cs411 {
+    int Funny;
+    double funny;
+    boolean flag;
+    string s;
+    int [] a;
+    int test () {
+        while (x = (Funny/10) <0) println (s, “ have fun !”);
+    }
+}
