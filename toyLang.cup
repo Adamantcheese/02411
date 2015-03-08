@@ -56,13 +56,19 @@ Decl 			::= VariableDecl
 					    {: System.out.print("[reduce 4]"); :}
 					|
 					__class__ __id__ OptExtends OptImplements __leftbrace__ FieldSet __rightbrace__
-					    {: System.out.print("[reduce 5]"); :}
+					    {: System.out.print("[reduce 5]");
+					       ((ToyScanner) getScanner()).doLastLine();
+					    :}
 					|
 					__interface__ __id__ __leftbrace__ PrototypeSet __rightbrace__
-					    {: System.out.print("[reduce 6]"); :}
+					    {: System.out.print("[reduce 6]");
+					       ((ToyScanner) getScanner()).doLastLine();
+					    :}
 					;
 VariableDecl	::= Variable __semicolon__
-                        {: System.out.print("[reduce 7]"); :}
+                        {: ((ToyScanner) getScanner()).doLastLine();
+                           System.out.print("[reduce 7]");
+                        :}
                     ;
 Variable		::= Type __id__
                         {: System.out.print("[reduce 8]"); :}
@@ -143,7 +149,9 @@ Prototype		::= Type __id__ __leftparen__ Formals __rightparen__ __semicolon__
 					    {: System.out.print("[reduce 35]"); :}
 					;
 StmtBlock		::= __leftbrace__ VariableDeclSet __rightbrace__
-                        {: System.out.print("[reduce 36]"); :}
+                        {: ((ToyScanner) getScanner()).doLastLine();
+                           System.out.print("[reduce 36]");
+                        :}
                     ;
 VariableDeclSet	::= VariableDecl VariableDeclSet
                         {: System.out.print("[reduce 37]"); :}
