@@ -17,6 +17,11 @@ class cs411 extends test implements a, b, c {
     }
 
     boolean testing() {
+        if(Funnny) {
+            return flag;
+        } else {
+            flag = true;
+        }
         return funny < cs411.Funny;
     }
 }
