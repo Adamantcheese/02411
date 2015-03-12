@@ -1,0 +1,7 @@
+interface bad {
+    int a;
+    bool b;
+    int main() {
+        return "there's some bad code and mismatch here";
+    }
+}
