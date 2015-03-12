@@ -628,7 +628,7 @@ class CUP$parser$actions {
                 ((ToyScanner) getScanner()).doLastLine();
                 System.out.print("[reduce 4]");
 
-                CUP$parser$result = parser.getSymbolFactory().newSymbol("Decl",2, ((java_cup.runtime.Symbol)CUP$parser$stack.peek()), ((java_cup.runtime.Symbol)CUP$parser$stack.peek()), RESULT);
+                CUP$parser$result = parser.getSymbolFactory().newSymbol("Decl", 2, ((java_cup.runtime.Symbol) CUP$parser$stack.peek()), ((java_cup.runtime.Symbol) CUP$parser$stack.peek()), RESULT);
             }
           return CUP$parser$result;
 
@@ -1135,7 +1135,7 @@ class CUP$parser$actions {
             case 61: // MathExpr ::= Expr __plus__ Expr
             {
               Object RESULT =null;
-                System.out.print("[reduce 61]");
+                System.out.print("[reduce 60]");
                 CUP$parser$result = parser.getSymbolFactory().newSymbol("MathExpr", 25, ((java_cup.runtime.Symbol) CUP$parser$stack.elementAt(CUP$parser$top - 2)), ((java_cup.runtime.Symbol) CUP$parser$stack.peek()), RESULT);
             }
           return CUP$parser$result;
@@ -1144,7 +1144,7 @@ class CUP$parser$actions {
             case 62: // MathExpr ::= Expr __minus__ Expr
             {
               Object RESULT =null;
-                System.out.print("[reduce 62]");
+                System.out.print("[reduce 61]");
                 CUP$parser$result = parser.getSymbolFactory().newSymbol("MathExpr", 25, ((java_cup.runtime.Symbol) CUP$parser$stack.elementAt(CUP$parser$top - 2)), ((java_cup.runtime.Symbol) CUP$parser$stack.peek()), RESULT);
             }
           return CUP$parser$result;
@@ -1153,7 +1153,7 @@ class CUP$parser$actions {
             case 63: // MathExpr ::= Expr __multiplication__ Expr
             {
               Object RESULT =null;
-                System.out.print("[reduce 63]");
+                System.out.print("[reduce 62]");
                 CUP$parser$result = parser.getSymbolFactory().newSymbol("MathExpr", 25, ((java_cup.runtime.Symbol) CUP$parser$stack.elementAt(CUP$parser$top - 2)), ((java_cup.runtime.Symbol) CUP$parser$stack.peek()), RESULT);
             }
           return CUP$parser$result;
@@ -1162,7 +1162,7 @@ class CUP$parser$actions {
             case 64: // MathExpr ::= Expr __division__ Expr
             {
               Object RESULT =null;
-                System.out.print("[reduce 64]");
+                System.out.print("[reduce 63]");
                 CUP$parser$result = parser.getSymbolFactory().newSymbol("MathExpr", 25, ((java_cup.runtime.Symbol) CUP$parser$stack.elementAt(CUP$parser$top - 2)), ((java_cup.runtime.Symbol) CUP$parser$stack.peek()), RESULT);
             }
           return CUP$parser$result;
@@ -1171,7 +1171,7 @@ class CUP$parser$actions {
             case 65: // MathExpr ::= Expr __mod__ Expr
             {
               Object RESULT =null;
-                System.out.print("[reduce 65]");
+                System.out.print("[reduce 64]");
                 CUP$parser$result = parser.getSymbolFactory().newSymbol("MathExpr", 25, ((java_cup.runtime.Symbol) CUP$parser$stack.elementAt(CUP$parser$top - 2)), ((java_cup.runtime.Symbol) CUP$parser$stack.peek()), RESULT);
             }
           return CUP$parser$result;
@@ -1180,7 +1180,7 @@ class CUP$parser$actions {
             case 66: // MathExpr ::= __minus__ Expr
             {
               Object RESULT =null;
-                System.out.print("[reduce 66]");
+                System.out.print("[reduce 65]");
                 CUP$parser$result = parser.getSymbolFactory().newSymbol("MathExpr", 25, ((java_cup.runtime.Symbol) CUP$parser$stack.elementAt(CUP$parser$top - 1)), ((java_cup.runtime.Symbol) CUP$parser$stack.peek()), RESULT);
             }
           return CUP$parser$result;
@@ -1189,7 +1189,7 @@ class CUP$parser$actions {
             case 67: // MathExpr ::= Expr __less__ Expr
             {
               Object RESULT =null;
-                System.out.print("[reduce 67]");
+                System.out.print("[reduce 66]");
                 CUP$parser$result = parser.getSymbolFactory().newSymbol("MathExpr", 25, ((java_cup.runtime.Symbol) CUP$parser$stack.elementAt(CUP$parser$top - 2)), ((java_cup.runtime.Symbol) CUP$parser$stack.peek()), RESULT);
             }
           return CUP$parser$result;
@@ -1198,7 +1198,7 @@ class CUP$parser$actions {
             case 68: // MathExpr ::= Expr __lessequal__ Expr
             {
               Object RESULT =null;
-                System.out.print("[reduce 68]");
+                System.out.print("[reduce 67]");
                 CUP$parser$result = parser.getSymbolFactory().newSymbol("MathExpr", 25, ((java_cup.runtime.Symbol) CUP$parser$stack.elementAt(CUP$parser$top - 2)), ((java_cup.runtime.Symbol) CUP$parser$stack.peek()), RESULT);
             }
           return CUP$parser$result;
@@ -1207,7 +1207,7 @@ class CUP$parser$actions {
             case 69: // MathExpr ::= Expr __greater__ Expr
             {
               Object RESULT =null;
-                System.out.print("[reduce 69]");
+                System.out.print("[reduce 68]");
                 CUP$parser$result = parser.getSymbolFactory().newSymbol("MathExpr", 25, ((java_cup.runtime.Symbol) CUP$parser$stack.elementAt(CUP$parser$top - 2)), ((java_cup.runtime.Symbol) CUP$parser$stack.peek()), RESULT);
             }
           return CUP$parser$result;
@@ -1216,7 +1216,7 @@ class CUP$parser$actions {
             case 70: // MathExpr ::= Expr __greaterequal__ Expr
             {
               Object RESULT =null;
-                System.out.print("[reduce 70]");
+                System.out.print("[reduce 69]");
                 CUP$parser$result = parser.getSymbolFactory().newSymbol("MathExpr", 25, ((java_cup.runtime.Symbol) CUP$parser$stack.elementAt(CUP$parser$top - 2)), ((java_cup.runtime.Symbol) CUP$parser$stack.peek()), RESULT);
             }
           return CUP$parser$result;
@@ -1225,7 +1225,7 @@ class CUP$parser$actions {
             case 71: // MathExpr ::= Expr __equal__ Expr
             {
               Object RESULT =null;
-                System.out.print("[reduce 71]");
+                System.out.print("[reduce 70]");
                 CUP$parser$result = parser.getSymbolFactory().newSymbol("MathExpr", 25, ((java_cup.runtime.Symbol) CUP$parser$stack.elementAt(CUP$parser$top - 2)), ((java_cup.runtime.Symbol) CUP$parser$stack.peek()), RESULT);
             }
           return CUP$parser$result;
@@ -1234,7 +1234,7 @@ class CUP$parser$actions {
             case 72: // MathExpr ::= Expr __notequal__ Expr
             {
               Object RESULT =null;
-                System.out.print("[reduce 72]");
+                System.out.print("[reduce 71]");
                 CUP$parser$result = parser.getSymbolFactory().newSymbol("MathExpr", 25, ((java_cup.runtime.Symbol) CUP$parser$stack.elementAt(CUP$parser$top - 2)), ((java_cup.runtime.Symbol) CUP$parser$stack.peek()), RESULT);
             }
           return CUP$parser$result;
@@ -1243,7 +1243,7 @@ class CUP$parser$actions {
             case 73: // MathExpr ::= Expr __and__ Expr
             {
               Object RESULT =null;
-                System.out.print("[reduce 73]");
+                System.out.print("[reduce 72]");
                 CUP$parser$result = parser.getSymbolFactory().newSymbol("MathExpr", 25, ((java_cup.runtime.Symbol) CUP$parser$stack.elementAt(CUP$parser$top - 2)), ((java_cup.runtime.Symbol) CUP$parser$stack.peek()), RESULT);
             }
           return CUP$parser$result;
@@ -1252,7 +1252,7 @@ class CUP$parser$actions {
             case 74: // MathExpr ::= Expr __or__ Expr
             {
               Object RESULT =null;
-                System.out.print("[reduce 74]");
+                System.out.print("[reduce 73]");
                 CUP$parser$result = parser.getSymbolFactory().newSymbol("MathExpr", 25, ((java_cup.runtime.Symbol) CUP$parser$stack.elementAt(CUP$parser$top - 2)), ((java_cup.runtime.Symbol) CUP$parser$stack.peek()), RESULT);
             }
           return CUP$parser$result;
@@ -1261,7 +1261,7 @@ class CUP$parser$actions {
             case 75: // MathExpr ::= __not__ Expr
             {
               Object RESULT =null;
-                System.out.print("[reduce 75]");
+                System.out.print("[reduce 74]");
                 CUP$parser$result = parser.getSymbolFactory().newSymbol("MathExpr", 25, ((java_cup.runtime.Symbol) CUP$parser$stack.elementAt(CUP$parser$top - 1)), ((java_cup.runtime.Symbol) CUP$parser$stack.peek()), RESULT);
             }
           return CUP$parser$result;
@@ -1270,7 +1270,7 @@ class CUP$parser$actions {
             case 76: // MathExpr ::= ParenExpr
             {
               Object RESULT =null;
-                System.out.print("[reduce 76]");
+                System.out.print("[reduce 75]");
                 CUP$parser$result = parser.getSymbolFactory().newSymbol("MathExpr", 25, ((java_cup.runtime.Symbol) CUP$parser$stack.peek()), ((java_cup.runtime.Symbol) CUP$parser$stack.peek()), RESULT);
             }
           return CUP$parser$result;
@@ -1279,7 +1279,7 @@ class CUP$parser$actions {
             case 77: // ParenExpr ::= __leftparen__ Expr __rightparen__
             {
               Object RESULT =null;
-                System.out.print("[reduce 77]");
+                System.out.print("[reduce 76]");
                 CUP$parser$result = parser.getSymbolFactory().newSymbol("ParenExpr", 26, ((java_cup.runtime.Symbol) CUP$parser$stack.elementAt(CUP$parser$top - 2)), ((java_cup.runtime.Symbol) CUP$parser$stack.peek()), RESULT);
             }
           return CUP$parser$result;
@@ -1288,7 +1288,7 @@ class CUP$parser$actions {
             case 78: // Lvalue ::= __id__ LvalueQualifers
             {
               Object RESULT =null;
-                System.out.print("[reduce 78]");
+                System.out.print("[reduce 77]");
                 CUP$parser$result = parser.getSymbolFactory().newSymbol("Lvalue", 27, ((java_cup.runtime.Symbol) CUP$parser$stack.elementAt(CUP$parser$top - 1)), ((java_cup.runtime.Symbol) CUP$parser$stack.peek()), RESULT);
             }
           return CUP$parser$result;
@@ -1297,7 +1297,7 @@ class CUP$parser$actions {
             case 79: // LvalueQualifers ::= __leftbracket__ Expr __rightbracket__ LvalueQualifers
             {
               Object RESULT =null;
-                System.out.print("[reduce 79]");
+                System.out.print("[reduce 78]");
                 CUP$parser$result = parser.getSymbolFactory().newSymbol("LvalueQualifers", 28, ((java_cup.runtime.Symbol) CUP$parser$stack.elementAt(CUP$parser$top - 3)), ((java_cup.runtime.Symbol) CUP$parser$stack.peek()), RESULT);
             }
           return CUP$parser$result;
@@ -1306,7 +1306,7 @@ class CUP$parser$actions {
             case 80: // LvalueQualifers ::= __period__ __id__ LvalueQualifers
             {
               Object RESULT =null;
-                System.out.print("[reduce 80]");
+                System.out.print("[reduce 79]");
                 CUP$parser$result = parser.getSymbolFactory().newSymbol("LvalueQualifers", 28, ((java_cup.runtime.Symbol) CUP$parser$stack.elementAt(CUP$parser$top - 2)), ((java_cup.runtime.Symbol) CUP$parser$stack.peek()), RESULT);
             }
           return CUP$parser$result;
@@ -1315,7 +1315,7 @@ class CUP$parser$actions {
             case 81: // LvalueQualifers ::=
             {
               Object RESULT =null;
-                System.out.print("[reduce 81]");
+                System.out.print("[reduce 80]");
                 CUP$parser$result = parser.getSymbolFactory().newSymbol("LvalueQualifers", 28, ((java_cup.runtime.Symbol) CUP$parser$stack.peek()), ((java_cup.runtime.Symbol) CUP$parser$stack.peek()), RESULT);
             }
           return CUP$parser$result;
@@ -1324,7 +1324,7 @@ class CUP$parser$actions {
             case 82: // Call ::= __id__ __leftparen__ Actuals __rightparen__
             {
               Object RESULT =null;
-                System.out.print("[reduce 82]");
+                System.out.print("[reduce 81]");
                 CUP$parser$result = parser.getSymbolFactory().newSymbol("Call", 29, ((java_cup.runtime.Symbol) CUP$parser$stack.elementAt(CUP$parser$top - 3)), ((java_cup.runtime.Symbol) CUP$parser$stack.peek()), RESULT);
             }
           return CUP$parser$result;
@@ -1333,7 +1333,7 @@ class CUP$parser$actions {
             case 83: // Call ::= __id__ __period__ __id__ __leftparen__ Actuals __rightparen__
             {
               Object RESULT =null;
-                System.out.print("[reduce 83]");
+                System.out.print("[reduce 82]");
                 CUP$parser$result = parser.getSymbolFactory().newSymbol("Call", 29, ((java_cup.runtime.Symbol) CUP$parser$stack.elementAt(CUP$parser$top - 5)), ((java_cup.runtime.Symbol) CUP$parser$stack.peek()), RESULT);
             }
           return CUP$parser$result;
@@ -1342,7 +1342,7 @@ class CUP$parser$actions {
             case 84: // Call ::= __newarray__ __leftparen__ __intconstant__ __comma__ Type __rightparen__
             {
               Object RESULT =null;
-                System.out.print("[reduce 84]");
+                System.out.print("[reduce 83]");
                 CUP$parser$result = parser.getSymbolFactory().newSymbol("Call", 29, ((java_cup.runtime.Symbol) CUP$parser$stack.elementAt(CUP$parser$top - 5)), ((java_cup.runtime.Symbol) CUP$parser$stack.peek()), RESULT);
             }
           return CUP$parser$result;
@@ -1351,7 +1351,7 @@ class CUP$parser$actions {
             case 85: // Call ::= __readln__ __leftparen__ __rightparen__
             {
               Object RESULT =null;
-                System.out.print("[reduce 85]");
+                System.out.print("[reduce 84]");
                 CUP$parser$result = parser.getSymbolFactory().newSymbol("Call", 29, ((java_cup.runtime.Symbol) CUP$parser$stack.elementAt(CUP$parser$top - 2)), ((java_cup.runtime.Symbol) CUP$parser$stack.peek()), RESULT);
             }
           return CUP$parser$result;
@@ -1360,7 +1360,7 @@ class CUP$parser$actions {
             case 86: // Actuals ::= ExprList
             {
               Object RESULT =null;
-                System.out.print("[reduce 86]");
+                System.out.print("[reduce 85]");
                 CUP$parser$result = parser.getSymbolFactory().newSymbol("Actuals", 30, ((java_cup.runtime.Symbol) CUP$parser$stack.peek()), ((java_cup.runtime.Symbol) CUP$parser$stack.peek()), RESULT);
             }
           return CUP$parser$result;
@@ -1369,7 +1369,7 @@ class CUP$parser$actions {
             case 87: // Actuals ::=
             {
               Object RESULT =null;
-                System.out.print("[reduce 87]");
+                System.out.print("[reduce 86]");
                 CUP$parser$result = parser.getSymbolFactory().newSymbol("Actuals", 30, ((java_cup.runtime.Symbol) CUP$parser$stack.peek()), ((java_cup.runtime.Symbol) CUP$parser$stack.peek()), RESULT);
             }
           return CUP$parser$result;
@@ -1378,7 +1378,7 @@ class CUP$parser$actions {
             case 88: // Constant ::= __intconstant__
             {
               Object RESULT =null;
-                System.out.print("[reduce 88]");
+                System.out.print("[reduce 87]");
                 CUP$parser$result = parser.getSymbolFactory().newSymbol("Constant", 31, ((java_cup.runtime.Symbol) CUP$parser$stack.peek()), ((java_cup.runtime.Symbol) CUP$parser$stack.peek()), RESULT);
             }
             return CUP$parser$result;
@@ -1387,7 +1387,7 @@ class CUP$parser$actions {
             case 89: // Constant ::= __doubleconstant__
             {
                 Object RESULT = null;
-                System.out.print("[reduce 89]");
+                System.out.print("[reduce 88]");
                 CUP$parser$result = parser.getSymbolFactory().newSymbol("Constant", 31, ((java_cup.runtime.Symbol) CUP$parser$stack.peek()), ((java_cup.runtime.Symbol) CUP$parser$stack.peek()), RESULT);
             }
             return CUP$parser$result;
@@ -1396,7 +1396,7 @@ class CUP$parser$actions {
             case 90: // Constant ::= __stringconstant__
             {
                 Object RESULT = null;
-                System.out.print("[reduce 90]");
+                System.out.print("[reduce 89]");
                 CUP$parser$result = parser.getSymbolFactory().newSymbol("Constant", 31, ((java_cup.runtime.Symbol) CUP$parser$stack.peek()), ((java_cup.runtime.Symbol) CUP$parser$stack.peek()), RESULT);
             }
             return CUP$parser$result;
@@ -1405,7 +1405,7 @@ class CUP$parser$actions {
             case 91: // Constant ::= __booleanconstant__
             {
                 Object RESULT = null;
-                System.out.print("[reduce 91]");
+                System.out.print("[reduce 90]");
                 CUP$parser$result = parser.getSymbolFactory().newSymbol("Constant", 31, ((java_cup.runtime.Symbol) CUP$parser$stack.peek()), ((java_cup.runtime.Symbol) CUP$parser$stack.peek()), RESULT);
             }
           return CUP$parser$result;

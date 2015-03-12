@@ -222,94 +222,94 @@ MathExpr		::= Constant
 					    %prec __period__
 					|
 					Expr __plus__ Expr
-					    {: System.out.print("[reduce 61]"); :}
+					    {: System.out.print("[reduce 60]"); :}
 					|
 					Expr __minus__ Expr
-					    {: System.out.print("[reduce 62]"); :}
+					    {: System.out.print("[reduce 61]"); :}
 					|
 					Expr __multiplication__ Expr
-					    {: System.out.print("[reduce 63]"); :}
+					    {: System.out.print("[reduce 62]"); :}
 					|
 					Expr __division__ Expr
-					    {: System.out.print("[reduce 64]"); :}
+					    {: System.out.print("[reduce 63]"); :}
 					|
 					Expr __mod__ Expr
-					    {: System.out.print("[reduce 65]"); :}
+					    {: System.out.print("[reduce 64]"); :}
 					|
 					__minus__ Expr
-					    {: System.out.print("[reduce 66]"); :}
+					    {: System.out.print("[reduce 65]"); :}
 					    %prec __uminus__
 					|
 					Expr __less__ Expr
-					    {: System.out.print("[reduce 67]"); :}
+					    {: System.out.print("[reduce 66]"); :}
 					|
 					Expr __lessequal__ Expr
-					    {: System.out.print("[reduce 68]"); :}
+					    {: System.out.print("[reduce 67]"); :}
 					|
 					Expr __greater__ Expr
-					    {: System.out.print("[reduce 69]"); :}
+					    {: System.out.print("[reduce 68]"); :}
 					|
 					Expr __greaterequal__ Expr
-					    {: System.out.print("[reduce 70]"); :}
+					    {: System.out.print("[reduce 69]"); :}
 					|
 					Expr __equal__ Expr
-					    {: System.out.print("[reduce 71]"); :}
+					    {: System.out.print("[reduce 70]"); :}
 					|
 					Expr __notequal__ Expr
-					    {: System.out.print("[reduce 72]"); :}
+					    {: System.out.print("[reduce 71]"); :}
 					|
 					Expr __and__ Expr
-					    {: System.out.print("[reduce 73]"); :}
+					    {: System.out.print("[reduce 72]"); :}
 					|
 					Expr __or__ Expr
-					    {: System.out.print("[reduce 74]"); :}
+					    {: System.out.print("[reduce 73]"); :}
 					|
 					__not__ Expr
-					    {: System.out.print("[reduce 75]"); :}
+					    {: System.out.print("[reduce 74]"); :}
 					|
 					ParenExpr
-					    {: System.out.print("[reduce 76]"); :}
+					    {: System.out.print("[reduce 75]"); :}
 					;
 ParenExpr       ::= __leftparen__ Expr __rightparen__
-                        {: System.out.print("[reduce 77]"); :}
+                        {: System.out.print("[reduce 76]"); :}
                     ;
 Lvalue			::= __id__ LvalueQualifers
-                        {: System.out.print("[reduce 78]"); :}
+                        {: System.out.print("[reduce 77]"); :}
 					;
 LvalueQualifers ::= __leftbracket__ Expr __rightbracket__ LvalueQualifers
-					    {: System.out.print("[reduce 79]"); :}
+					    {: System.out.print("[reduce 78]"); :}
 					|
 					__period__ __id__ LvalueQualifers
-					    {: System.out.print("[reduce 80]"); :}
+					    {: System.out.print("[reduce 79]"); :}
 					|
-					    {: System.out.print("[reduce 81]"); :}
+					    {: System.out.print("[reduce 80]"); :}
 					;
 Call			::= __id__ __leftparen__ Actuals __rightparen__
-                        {: System.out.print("[reduce 82]"); :}
+                        {: System.out.print("[reduce 81]"); :}
 					|
 					__id__ __period__ __id__ __leftparen__ Actuals __rightparen__
-					    {: System.out.print("[reduce 83]"); :}
+					    {: System.out.print("[reduce 82]"); :}
 					|
 					__newarray__ __leftparen__ __intconstant__ __comma__ Type __rightparen__
-					    {: System.out.print("[reduce 84]"); :}
+					    {: System.out.print("[reduce 83]"); :}
 					|
 					__readln__ __leftparen__ __rightparen__
-					    {: System.out.print("[reduce 85]"); :}
+					    {: System.out.print("[reduce 84]"); :}
 					;
 Actuals			::= ExprList
-                        {: System.out.print("[reduce 86]"); :}
+                        {: System.out.print("[reduce 85]"); :}
 					|
-					    {: System.out.print("[reduce 87]"); :}
+					    {: System.out.print("[reduce 86]"); :}
 					;
 Constant		::= __intconstant__
-                        {: System.out.print("[reduce 88]"); :}
+                        {: System.out.print("[reduce 87]"); :}
 					|
 					__doubleconstant__
-					    {: System.out.print("[reduce 89]"); :}
+					    {: System.out.print("[reduce 88]"); :}
 					|
 					__stringconstant__
-					    {: System.out.print("[reduce 90]"); :}
+					    {: System.out.print("[reduce 89]"); :}
 					|
 					__booleanconstant__
-					    {: System.out.print("[reduce 91]"); :}
+					    {: System.out.print("[reduce 90]"); :}
 					;
